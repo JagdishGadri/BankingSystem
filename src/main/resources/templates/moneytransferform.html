@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3 mt-3 vertical-center" style="width: 500px">
+			<div class="card-body">
+				<h1 class="text-center" style="color: black">Transfer Your
+					Money</h1>
+				 <div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-8 offset-md-2 ">
+							<form th:action="@{/transactiondone}" method="post"
+								th:object="${user1}" class="mt-2">
+
+								<input type="hidden" th:value="${user1.id}" name="id" /> <input
+									type="hidden" th:value="${user1.age}" name="age" />
+								<!-- name -->
+								<div class="input-group">
+									<div class="input-group-prepend ">
+										<div class="input-group-text">
+										<span id="basic-addon1" style="width:75px;font-weight:bold">Name</span>
+										
+										</div>
+									</div>
+									<input th:value="${user1.name}" type="text" name="name"
+										id="name" placeholder="Enter Name here" class="form-control"
+										required />
+								</div>
+								<!-- email -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+										<span  id="basic-addon1"  style="width:75px ;font-weight:bold">Email</span>
+											
+										</div>
+										
+									</div>
+									<input th:value="${user1.email}" type="email" name="email"
+										id="email" placeholder="Enter Email Id here"
+										class="form-control" required />
+
+
+								</div>
+								<!-- balance  -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											
+												<span id="basic-addon1"  style="width:75px;font-weight:bold">Amount</span>
+										</div>
+									
+									</div>
+									<input type="number" name="balance" id="balance"
+										placeholder="Enter amount you want to transfer"
+										class="form-control" />
+								</div>
+
+								<div class="container text-center mt-3">
+									<button class="btn btn-outline-primary">Make
+										Transaction</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+ 
+						</div>
+		</div>
+
+		<script
+			src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
+			referrerpolicy="origin"></script>
+
+		</script>
+		<script>
+			tinymce.init({
+				selector : '#mytextarea'
+			});
+		</script>
+	</section>
+
+</body>
+</html>
